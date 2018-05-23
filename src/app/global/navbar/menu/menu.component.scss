@@ -1,0 +1,94 @@
+@import '~src/styles/variables';
+
+.menu {
+	position: relative;
+
+	&__list {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		height: 30em;
+		width: 30em;
+		border-radius: 100%;
+		overflow: hidden;
+		transition: all .3s ease;
+		pointer-events: auto;
+
+		&--open {
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		&__wrapper {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			&-item {
+				pointer-events: none;
+				position: absolute;
+				background-color: transparent;
+				width: 15em;
+				height: 15em;
+				overflow: hidden;
+				transform-origin: 100% 100%;
+				border: 2px solid transparent;
+
+				& > a {
+					position: absolute;
+
+					font-size: 1.2 * $font-size;
+
+					pointer-events: auto;
+					border-radius: 100%;
+					transform: skew(-45deg);
+					height: 140%;
+					width: 140%;
+					right: -50%;
+					cursor: pointer;
+					transition: all 0.3s ease;
+					background: radial-gradient(at 110% 71%, transparent 20%, transparentize(darken($text-color, 50%), 0.05) 60%);
+
+					&.active {
+						& > span {
+							color: lighten($alternate-color, 15%);
+						}
+					}
+
+					& > span {
+						position: absolute;
+						transition: all 0.3s ease;
+					}
+
+					&:hover {
+						background: radial-gradient(at 110% 71%, transparent 15%, transparentize(darken($text-color, 60%), 0.1) 65%);
+
+						& > span {
+							color: $alternate-color;
+						}
+					}
+
+				}
+
+				@for $i from 1 through 2 {
+					&:nth-child(#{$i}) {
+						transform: rotate(#{360-45*$i}deg) skew(45deg);
+						& > a {
+							& > span {
+								transform: rotate(15 + $i*5deg);
+								bottom: 3*$i+40%;
+								right: -$i*4+62%;
+							}
+
+							&:hover {
+								& > span {
+									transform: rotate(15 + $i*5deg) scale(1.2);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

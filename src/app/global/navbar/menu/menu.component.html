@@ -1,0 +1,12 @@
+<div class="menu">
+	<coop-menu-button (toggled)="toggle($event)"></coop-menu-button>
+	<div class="menu__list" [ngClass]="{ 'menu__list--open': open}">
+		<ul class="menu__list__wrapper">
+			<li class="menu__list__wrapper-item"><a routerLink="/" routerLinkActive="active"
+													[routerLinkActiveOptions]="{exact: true}"><span>Home</span></a></li>
+			<li class="menu__list__wrapper-item"><a routerLink="/contact" routerLinkActive="active"
+													[routerLinkActiveOptions]="{exact: true}"><span>Contact</span></a>
+			</li>
+		</ul>
+	</div>
+</div>

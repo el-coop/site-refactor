@@ -1,0 +1,24 @@
+@import "~src/styles/variables";
+
+.skew-overlay {
+	background-color: transparent;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	overflow: hidden;
+	left: 0;
+	opacity: 0.2;
+
+	@media #{$above-desktop} {
+		opacity: 1;
+		position: relative;
+		width: 40vw;
+		background-color: lighten($background-color, 4%);
+		transform: skewX(-15deg) translate(10vw, 0);
+		& > div {
+			transform: skewX(15deg) translate(-4.5vw, 5vh) scale(0.8);
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

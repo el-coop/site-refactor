@@ -1,0 +1,152 @@
+@import '~src/styles/variables';
+
+.menu__button {
+	background-color: lighten($background-color, 15%);
+	border-radius: 100%;
+	height: 3rem;
+	width: 3rem;
+	transition: all 0.3s;
+	cursor: pointer;
+	padding: 0.5em 0;
+	border-width: 1px;
+	z-index: 15;
+	position: relative;
+
+	& > .flex-container {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+		& > div {
+			height: 0;
+			border: 1.5px solid $text-color;
+			width: 1.75em;
+			transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+			background: #fff;
+			position: relative;
+
+			&:nth-child(3):before {
+				opacity: 0;
+				animation: ball 1.5s linear infinite;
+				content: '';
+				border: 2px solid #fff;
+				display: block;
+				position: relative;
+				top: 0.25px;
+			}
+		}
+	}
+
+	&:hover {
+		background-color: mix(lighten($background-color, 15%), $alternate-color, 50%);
+		transform: scale(1.1) translateY(1.5px);
+
+		& > .flex-container {
+			justify-content: center;
+
+			& > div {
+				height: .75em;
+				border-radius: 50%;
+				animation: rotate-180 300ms linear 1;
+				width: 2em;
+				background: transparent;
+
+				&:nth-child(1) {
+					transform: rotate(-33deg);
+					position: relative;
+					top: 30%;
+				}
+
+				&:nth-child(2) {
+					transform: rotate(90deg);
+				}
+
+				&:nth-child(3) {
+					transform: rotate(33deg);
+					position: relative;
+					top: -30%;
+				}
+
+				&:nth-child(3):before {
+					width: 2px;
+					height: 2px;
+					border-radius: 50%;
+					background: $alternate-color;
+					opacity: 1;
+					transition: opacity 600ms cubic-bezier(.61, .01, .42, 1);
+				}
+			}
+		}
+	}
+
+	&--open:not(:hover) {
+		animation: rotate-180 300ms linear 1;
+
+		& > .flex-container {
+			& > div {
+
+				&:nth-child(1) {
+					position: absolute;
+					transform: rotate(45deg);
+				}
+
+				&:nth-child(2) {
+					width: 0;
+				}
+
+				&:nth-child(3) {
+					position: absolute;
+					transform: rotate(-45deg);
+				}
+
+			}
+		}
+	}
+}
+
+@keyframes rotate-180 {
+	0% {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes ball {
+	0% {
+		left: -20%;
+		top: 10%;
+	}
+	10% {
+		left: 10%;
+		top: -35%;
+	}
+	25% {
+		left: 45%;
+		top: -50%;
+	}
+	40% {
+		left: 80%;
+		top: -20%;
+	}
+	50% {
+		left: 98%;
+		top: 18%;
+	}
+	60% {
+		left: 80%;
+		top: 50%;
+	}
+	75% {
+		left: 45%;
+		top: 80%;
+	}
+	90% {
+		left: 0%;
+		top: 60%;
+	}
+	100% {
+		left: -20%;
+		top: 10%;
+	}
+}

@@ -1,0 +1,40 @@
+@import "~src/styles/variables";
+
+.nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5vh;
+	width: calc(100% - 4rem);
+	margin-left: 2rem;
+	margin-right: 2rem;
+	z-index: 1000;
+
+	@media #{$above-tablet} {
+		width: calc(100% - 8rem);
+		margin-left: 4rem;
+		margin-right: 4rem;
+	}
+
+	&__logo {
+		align-self: center;
+		font-size: $font-size * 1.75;
+		letter-spacing: $font-size * 0.7;
+		font-weight: bold;
+		font-family: $family-monospace;
+
+		color: $text-color;
+		white-space: nowrap;
+
+		@media #{$above-phone}{
+			font-size: $font-size * 2.5;
+		}
+
+		@media #{$above-tablet} {
+			align-self: auto;
+		}
+
+	}
+}

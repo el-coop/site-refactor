@@ -1,0 +1,85 @@
+@import "~src/styles/variables";
+
+.page {
+	&__bg-logo {
+		display: none;
+		transition: all 1s;
+		@media  #{$above-tablet}{
+			display: inline-block;
+			opacity: 1;
+		}
+		font-family: mestizos-unidos;
+		color: lighten($background-color, 4%);
+		transform: rotate(0.25turn) scale(20) translate(20px, -5px);
+		letter-spacing: -2px;
+		user-select: none;
+	}
+}
+
+.header-alternate {
+	opacity: 0;
+	font-family: $family-monospace;
+	text-transform: uppercase;
+	color: lighten($alternate-color, 10%);
+	letter-spacing: $font-size/3;
+	font-weight: lighter;
+	animation: put-slide-in 0.5s 0.5s ease-in-out forwards;
+}
+
+.header-main {
+	font-weight: 700;
+	line-height: 0.9;
+	font-size: $font-size*2.5;
+
+	@media  #{$above-phone}{
+		font-size: $font-size*4;
+	}
+
+	animation: put-slide-in 0.5s ease-in-out;
+}
+
+.link-wrapper {
+	opacity: 0;
+	animation: put-slide-in 0.5s 0.5s ease-in-out forwards;
+}
+
+.main-link {
+	font-family: $family-monospace;
+	display: inline-block;
+	letter-spacing: $font-size/2;
+	line-height: 2;
+	text-transform: uppercase;
+	font-size: $font-size * 1.5;
+	border-bottom: solid 1px lighten($alternate-color, 10%);
+	opacity: 0.65;
+	transition: opacity 0.4s, color 0.4s, transform 0.4s;
+	&:hover {
+		opacity: 1;
+		color: mix(#fff, $alternate-color, 75%);
+		transform: scale(1.1) translateX(5%);
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translate(50%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes put-slide-in {
+	0% {
+		opacity: 0;
+		transform: perspective(500px) translate(50%) rotateY(-20deg)
+	}
+
+	100% {
+		opacity: 1;
+		transform: perspective(500px) translate(0) rotateY(0)
+	}
+}

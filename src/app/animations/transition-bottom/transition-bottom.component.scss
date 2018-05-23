@@ -1,0 +1,30 @@
+@import "~src/styles/variables";
+
+.transition-svg {
+	display: block;
+	position: absolute;
+	top: 100%;
+	@media #{$above-wide-screen} {
+		width: 100%;
+	}
+
+	& > svg {
+		@media #{$above-wide-screen} {
+			width: 100%;
+		}
+		height: 100vh;
+		fill: url(#transition-gradient-filter);
+		stroke: mix($background-color, $alternate-color, 75%);
+
+		.transition-gradient__start {
+			stop-color: $background-color;
+		}
+		.transition-gradient__middle {
+			stop-color: mix($background-color, $alternate-color, 90%);
+		}
+		.transition-gradient__end {
+			stop-color: mix($background-color, $alternate-color, 75%);
+		}
+	}
+}
+
