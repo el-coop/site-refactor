@@ -1,3 +1,22 @@
-<p>
-  contact works!
-</p>
+<div class="page" (touchstart)="touchScreen()">
+	<div class="background">
+		<coop-animation-middle-slice-rotation src="/assets/images/aroba.png" [height]="280"
+											  [width]="280"></coop-animation-middle-slice-rotation>
+	</div>
+	<div class="page__body">
+		<div class="columns">
+			<div class="title">
+				Drop Us A&nbsp;<span class="glitch-text" text="Line!">Line!</span>
+			</div>
+			<div class="details column" [ngClass]="{'above-tablet': formToggled}">
+				<coop-contact-details></coop-contact-details>
+			</div>
+			<div class="contact column" [ngClass]="{'above-tablet': ! formToggled}">
+				<coop-contact-form></coop-contact-form>
+			</div>
+		</div>
+	</div>
+	<div class="flip-page under-tablet" (click)="formToggled = !formToggled">
+	</div>
+</div>
+<coop-animation-transition-bottom></coop-animation-transition-bottom>

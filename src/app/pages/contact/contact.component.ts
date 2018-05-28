@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {DetailsComponent} from './details/details.component';
 
 @Component({
-  selector: 'coop-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+	selector: 'coop-contact',
+	templateUrl: './contact.component.html',
+	styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+	@ViewChild(DetailsComponent) detailComponent: DetailsComponent;
 
-  constructor() { }
+	protected formToggled = true;
+	protected touched = false;
 
-  ngOnInit() {
-  }
+	constructor() {
+	}
 
+	ngOnInit() {
+	}
+
+	touchScreen() {
+		if (this.touched) {
+			return;
+		}
+		this.touched = true;
+		this.detailComponent.toggleIcons();
+	}
 }

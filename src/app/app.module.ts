@@ -1,5 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -13,6 +15,12 @@ import {AnimationOverlayComponent} from './global/animation-overlay/animation-ov
 import {IceCreamComponent} from './animations/ice-cream/ice-cream.component';
 import {TransitionBottomComponent} from './animations/transition-bottom/transition-bottom.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+import {MiddleSliceRotationComponent} from './animations/middle-slice-rotation/middle-slice-rotation.component';
+import {TextSplashEffectComponent} from './animations/text-splash-effect/text-splash-effect.component';
+import {FormComponent} from './pages/contact/form/form.component';
+import {SlicesAnimationComponent} from './animations/slices-animation/slices-animation.component';
+import {DetailsComponent} from './pages/contact/details/details.component';
 
 @NgModule({
 	declarations: [
@@ -25,12 +33,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 		ContainRotatedElementDirective,
 		AnimationOverlayComponent,
 		IceCreamComponent,
-		TransitionBottomComponent
+		TransitionBottomComponent,
+		MiddleSliceRotationComponent,
+		TextSplashEffectComponent,
+		FormComponent,
+		SlicesAnimationComponent,
+		DetailsComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
+		FormsModule,
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

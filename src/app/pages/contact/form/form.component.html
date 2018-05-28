@@ -1,0 +1,56 @@
+<div class="main">
+	<div class="wrapper" *ngIf="pageState == 'message'" [@fadeOutIn]="true">
+		<div class="control">
+			<input class="input" placeholder="What's your name?" [(ngModel)]="name" required
+				   minlength="2"
+				   #nameField="ngModel">
+		</div>
+		<div class="control">
+			<input class="input" placeholder="What's your email address?" [(ngModel)]="email"
+				   required
+				   pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+				   minlength="2" #emailField="ngModel">
+		</div>
+		<div class="control message">
+		<textarea class="input input-no-border" placeholder="Write us here" [(ngModel)]="message" required
+				  minlength="4"
+				  #messageField="ngModel"></textarea>
+		</div>
+		<div class="control">
+			<button class="button button-transparent"
+					[disabled]="messageField.errors || emailField.errors || nameField.errors"
+					(click)="sendMessage()">> Send
+			</button>
+		</div>
+	</div>
+	<div class="wrapper sending" *ngIf="pageState == 'sending'" [@fadeOutIn]="true">
+		<span class="sending__blink">Sending...</span>
+		<svg class="sending__plane" viewBox="0 0 28 26">
+			<path class="plane-svg__path" fill="#fff" d="M0,0 28,13 0,26 0,13 20,13 0,7z"></path>
+		</svg>
+	</div>
+	<div class="wrapper send-result" *ngIf="pageState == 'sent'" [@fadeOutIn]="true">
+		<div class="header-secondary centered no-animation">
+			Success! Your message has been sent.
+			<br>
+			<small>We will contact you shortly.</small>
+		</div>
+		<div class="perspective-button-control">
+			<button (click)="pageState = 'message'" class="button back-button">
+				<span>Send us another message</span>
+			</button>
+		</div>
+		<div class="absolute-under-tablet"></div>
+	</div>
+	<div class="wrapper send-result" *ngIf="pageState == 'fail'" [@fadeOutIn]="true">
+		<div class="header-secondary centered no-animation">
+			Error! Please try again later.
+		</div>
+		<div class="perspective-button-control">
+			<button (click)="pageState = 'message'" class="button back-button">
+				<span>Try again</span>
+			</button>
+		</div>
+		<div class="absolute-under-tablet"></div>
+	</div>
+</div>

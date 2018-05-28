@@ -1,0 +1,23 @@
+.is-flex {
+	display: flex;
+}
+
+.above-tablet {
+	@media #{$tablet-and-down} {
+		display: none !important;
+	}
+}
+
+.under-tablet {
+	@media #{$above-tablet} {
+		display: none !important;
+	}
+}
+
+.absolute-under-tablet {
+	position: absolute;
+
+	@media #{$above-tablet} {
+		position: relative;
+	}
+}

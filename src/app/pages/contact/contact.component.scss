@@ -1,1 +1,88 @@
 @import "~src/styles/variables";
+
+.background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media #{$above-tablet} {
+		width: 50%;
+	}
+}
+
+.page__body {
+	padding-top: 15vh;
+
+	@media #{$above-tablet} {
+		padding-top: 10vh;
+	}
+
+	& > .columns {
+		grid-template-rows: 20% auto;
+		grid-template-areas: "header header" "details contact";
+	}
+}
+
+.title {
+	display: none;
+	grid-area: header;
+	font-size: 3 * $font-size;
+	justify-content: center;
+	align-items: center;
+	color: $text-color;
+
+	@media #{$above-tablet} {
+		display: flex;
+	}
+
+	svg {
+		vertical-align: sub;
+		height: 50px;
+		fill: $text-color;
+	}
+}
+
+.details {
+	grid-area: details;
+	height: 100%;
+	width: 100%;
+}
+
+.contact {
+	grid-area: contact;
+	height: 100%;
+	width: 100%;
+}
+
+.flip-page {
+	z-index: 100;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 35vw;
+	width: 35vw;
+	background-color: lighten($background-color, 10%);
+	clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+	cursor: pointer;
+
+	&:after {
+		content: '+';
+		position: absolute;
+		font-size: $font-size * 3;
+		top: 15vw;
+		right: 6vw;
+	}
+
+	&:hover {
+		background-color: lighten($background-color, 5%);
+		&:after {
+			color: lighten($alternate-color, 15%);
+		}
+	}
+}

@@ -1,0 +1,19 @@
+@import "~src/styles/variables";
+
+:host {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+}
+
+.details__contact-list-icon {
+	margin-right: 25px;
+	margin-top: 10px;
+
+
+	@media #{$above-tablet} {
+		margin-top: 25px;
+	}
+}

@@ -1,0 +1,14 @@
+div {
+	position: relative;
+
+	& > img {
+		opacity: 0.3;
+	}
+
+	& > canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+

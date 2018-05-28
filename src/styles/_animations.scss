@@ -1,0 +1,55 @@
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translate(50%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes put-slide-in {
+	0% {
+		opacity: 0;
+		transform: perspective(500px) translate(50%) rotateY(-20deg)
+	}
+
+	100% {
+		opacity: 1;
+		transform: perspective(500px) translate(0) rotateY(0)
+	}
+}
+
+@mixin glitchText($offset) {
+	position: absolute;
+	left: $offset;
+	top: $offset;
+	clip: rect(0, 900px, 0, 0);
+	background-color: $background-color;
+	color: $text-color;
+	animation: glitch 3s infinite alternate-reverse;
+	animation-delay: 4s;
+}
+
+.glitch-text {
+	position: relative;
+	&:after {
+		content: attr(text);
+		@include glitchText(1px);
+	}
+	&:before {
+		content: attr(text);
+		@include glitchText(-1px);
+	}
+}
+
+@keyframes glitch {
+	$steps: 20;
+	@for $i from 0 through $steps {
+		#{percentage($i * (1 / $steps))} {
+			clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+		}
+	}
+}

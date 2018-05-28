@@ -13,7 +13,7 @@
 		opacity: 1;
 		position: relative;
 		width: 40vw;
-		background-color: lighten($background-color, 4%);
+		background-color: lighten($background-color, 10%);
 		transform: skewX(-15deg) translate(10vw, 0);
 		& > div {
 			transform: skewX(15deg) translate(-4.5vw, 5vh) scale(0.8);

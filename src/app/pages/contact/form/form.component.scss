@@ -1,0 +1,88 @@
+@import "~src/styles/variables";
+
+.main {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.message {
+	display: flex;
+	flex: 1;
+	& > textarea {
+		font-size: 1.5 * $font-size;
+		font-weight: 500;
+		&::placeholder {
+			font-size: 1.5 * $font-size;
+			font-weight: 500;
+		}
+
+		@media #{$above-tablet} {
+			font-size: 2.5 * $font-size;
+			&::placeholder {
+				font-size: 2.5 * $font-size;
+			}
+		}
+
+	}
+
+}
+
+.sending {
+	color: white;
+	font-size: $font-size * 2;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	&__blink {
+		animation: blink 2s ease-in-out alternate infinite;
+	}
+
+	&__plane {
+		position: relative;
+		top: -2 * $font-size;
+		height: 2.3 * $font-size;
+		animation: plane-fly 4s linear forwards infinite;
+	}
+}
+
+.send-result {
+	align-items: center;
+	justify-content: space-between;
+
+	.button {
+		letter-spacing: 2px;
+		padding: 25px 40px;
+		text-transform: uppercase;
+
+		min-width: 305px;
+	}
+
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 0.8;
+	}
+}
+
+@keyframes plane-fly {
+	0% {
+		transform: rotate(360deg) translateX(150px) rotate(270deg);
+	}
+	100% {
+		transform: rotate(0deg) translateX(150px) rotate(270deg);
+	}
+}

@@ -1,0 +1,42 @@
+.header-alternate {
+	opacity: 0;
+	font-family: $family-monospace;
+	text-transform: uppercase;
+	color: lighten($alternate-color, 10%);
+	letter-spacing: $font-size/3;
+	font-weight: lighter;
+	animation: put-slide-in 0.5s 0.5s ease-in-out forwards;
+}
+
+.header-main {
+	font-weight: 700;
+	line-height: 0.9;
+	font-size: $font-size*2.5;
+
+	@media  #{$above-phone}{
+		font-size: $font-size*4;
+	}
+
+	animation: put-slide-in 0.5s ease-in-out;
+}
+
+.header-secondary {
+	margin-top: 0;
+	text-align: justify;
+	font-family: $family-monospace;
+	opacity: 0;
+	font-weight: 500;
+	font-size: $font-size * 1.5;
+	@media  #{$above-phone}{
+		font-size: $font-size*2;
+	}
+	animation: put-slide-in 0.5s 0.5s ease-in-out forwards;
+
+	&.centered {
+		text-align: center;
+	}
+	&.no-animation {
+		opacity: 1;
+		animation: none;
+	}
+}
