@@ -17,11 +17,8 @@ export class AppComponent implements OnInit {
 
 
 	ngOnInit(): void {
-		console.log('here');
 		this.http.get('/api/csrf-token').subscribe((res) => {
-			console.log('csrf-token');
 		}, (err: HttpErrorResponse) => {
-			console.log(err);
 		});
 	}
 
