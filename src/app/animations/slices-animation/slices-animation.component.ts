@@ -13,7 +13,7 @@ export class SlicesAnimationComponent implements OnInit, AfterViewInit {
 	@Input() slices: number;
 	@Input() title: string;
 
-	protected style;
+	public style;
 	protected image;
 	protected canvas: ElementRef;
 	protected pieces;

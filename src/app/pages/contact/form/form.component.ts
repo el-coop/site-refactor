@@ -9,7 +9,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 	animations: [fadeOutIn]
 })
 export class FormComponent implements OnInit {
-	protected pageState = 'message';
+	public pageState = 'message';
 
 	protected name = '';
 	protected email = '';

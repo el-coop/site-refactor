@@ -9,7 +9,7 @@ import {Event, NavigationStart, Router} from '@angular/router';
 export class ButtonComponent implements OnInit {
 
 	@Output() toggled = new EventEmitter<boolean>();
-	protected open = false;
+	public open = false;
 
 	constructor(private router: Router) {
 		router.events.subscribe((event: Event) => {

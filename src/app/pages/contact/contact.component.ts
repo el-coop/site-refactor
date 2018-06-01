@@ -9,7 +9,7 @@ import {DetailsComponent} from './details/details.component';
 export class ContactComponent implements OnInit {
 	@ViewChild(DetailsComponent) detailComponent: DetailsComponent;
 
-	protected formToggled = true;
+	public formToggled = true;
 	protected touched = false;
 
 	constructor() {

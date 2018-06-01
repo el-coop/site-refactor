@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
 	styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-	protected open = false;
+	public open = false;
 
 	constructor() {
 	}
